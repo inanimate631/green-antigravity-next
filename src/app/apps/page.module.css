@@ -1,0 +1,208 @@
+.appsPage {
+  display: grid;
+  gap: 1rem;
+  min-height: 100%;
+  padding: 0.5rem 0 0.8rem;
+}
+
+.appsHero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+  min-height: clamp(260px, 36vh, 410px);
+}
+
+.appsCopy {
+  border: 1px solid #d0ddd4;
+  border-radius: 1.15rem;
+  background: rgba(244, 250, 245, 0.9);
+  padding: clamp(1rem, 2.4vw, 1.5rem);
+}
+
+.kicker {
+  margin: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #177640;
+  font-weight: 700;
+}
+
+.appsCopy h1 {
+  margin: 0.7rem 0 0;
+  font-size: clamp(1.9rem, 4vw, 3.4rem);
+  line-height: 0.94;
+  letter-spacing: -0.03em;
+}
+
+.appsCopy > p {
+  margin: 0.8rem 0 0;
+  color: #345644;
+  line-height: 1.45;
+}
+
+.chips {
+  margin-top: 0.85rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chips span {
+  border: 1px solid #d3dfd6;
+  border-radius: 999px;
+  padding: 0.42rem 0.78rem;
+  font-size: 0.84rem;
+  background: rgba(236, 244, 238, 0.85);
+  color: #1f3528;
+}
+
+.appsVisual {
+  border: 1px solid #d0ddd4;
+  border-radius: 1.15rem;
+  background: linear-gradient(180deg, rgba(242, 248, 243, 0.86), rgba(226, 236, 229, 0.94));
+  overflow: hidden;
+  position: relative;
+  display: grid;
+  align-items: end;
+}
+
+.visualBg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 14%, rgba(28, 153, 74, 0.23), transparent 58%),
+    url('/xcar/im_download_app_bg.png') center / cover no-repeat;
+  opacity: 0.25;
+}
+
+.appsVisual img {
+  position: relative;
+  z-index: 1;
+  width: 112%;
+  max-width: none;
+  justify-self: center;
+  margin-bottom: -2%;
+  animation: carShift 7s ease-in-out infinite;
+}
+
+.stores {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.stores a {
+  border-radius: 1rem;
+  border: 1px solid #d2dfd5;
+  background: rgba(246, 251, 247, 0.9);
+  min-height: 84px;
+  display: grid;
+  place-items: center;
+  padding: 0.55rem;
+  transition: transform 180ms ease, box-shadow 220ms ease;
+}
+
+.stores a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(30, 82, 49, 0.12);
+}
+
+.stores img {
+  width: 100%;
+  max-width: 250px;
+  max-height: 46px;
+  object-fit: contain;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.steps article {
+  border-radius: 1rem;
+  border: 1px solid #d2dfd5;
+  background: rgba(246, 251, 247, 0.9);
+  padding: 0.9rem;
+}
+
+.steps span {
+  display: inline-grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #111318;
+  color: #fff;
+  font-size: 0.83rem;
+}
+
+.steps h2 {
+  margin: 0.55rem 0 0;
+  font-size: 1.05rem;
+}
+
+.steps p {
+  margin: 0.45rem 0 0;
+  color: #355844;
+  line-height: 1.4;
+}
+
+.benefits {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.benefits article {
+  border-radius: 1rem;
+  border: 1px solid #d2dfd5;
+  background: rgba(240, 247, 241, 0.88);
+  padding: 0.9rem;
+}
+
+.benefits h3 {
+  margin: 0;
+  font-size: 1.04rem;
+}
+
+.benefits p {
+  margin: 0.5rem 0 0;
+  color: #355844;
+  line-height: 1.4;
+}
+
+@keyframes carShift {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@media (max-width: 1100px) {
+  .appsHero,
+  .stores,
+  .steps,
+  .benefits {
+    grid-template-columns: 1fr;
+  }
+
+  .appsHero {
+    min-height: auto;
+  }
+
+  .appsVisual img {
+    width: 100%;
+    margin-bottom: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .appsVisual img {
+    animation: none;
+  }
+}

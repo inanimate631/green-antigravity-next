@@ -1,0 +1,192 @@
+.docsPage {
+  display: grid;
+  gap: 1rem;
+  min-height: 100%;
+  padding: 0.5rem 0 0.8rem;
+}
+
+.docsHero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 0.9rem;
+  min-height: clamp(250px, 34vh, 390px);
+}
+
+.docsCopy {
+  border: 1px solid #d0ddd4;
+  border-radius: 1.15rem;
+  background: rgba(244, 250, 245, 0.9);
+  padding: clamp(1rem, 2.4vw, 1.5rem);
+}
+
+.kicker {
+  margin: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #177640;
+  font-weight: 700;
+}
+
+.docsCopy h1 {
+  margin: 0.7rem 0 0;
+  font-size: clamp(1.9rem, 4vw, 3.4rem);
+  line-height: 0.94;
+  letter-spacing: -0.03em;
+}
+
+.docsCopy > p {
+  margin: 0.8rem 0 0;
+  color: #345644;
+  line-height: 1.45;
+  max-width: 62ch;
+}
+
+.chips {
+  margin-top: 0.85rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chips span {
+  border: 1px solid #d3dfd6;
+  border-radius: 999px;
+  padding: 0.42rem 0.78rem;
+  font-size: 0.84rem;
+  background: rgba(236, 244, 238, 0.85);
+  color: #1f3528;
+}
+
+.docsPreview {
+  border: 1px solid #d0ddd4;
+  border-radius: 1.15rem;
+  background: linear-gradient(180deg, rgba(240, 248, 242, 0.86), rgba(225, 236, 228, 0.94));
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  align-items: end;
+}
+
+.previewMap {
+  position: absolute;
+  inset: 0;
+  background: url('/xcar/im_download_app_bg.png') center / cover no-repeat;
+  opacity: 0.18;
+  filter: grayscale(1) contrast(0.92);
+}
+
+.previewCard {
+  position: relative;
+  z-index: 1;
+  margin: 0.85rem;
+  border-radius: 0.9rem;
+  border: 1px solid rgba(22, 79, 46, 0.16);
+  background: rgba(249, 253, 249, 0.92);
+  padding: 0.85rem 0.9rem;
+}
+
+.previewCard p {
+  margin: 0;
+  font-size: 0.83rem;
+  color: #35624a;
+}
+
+.previewCard strong {
+  display: block;
+  margin-top: 0.24rem;
+  font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+  line-height: 0.9;
+}
+
+.previewCard span {
+  display: block;
+  margin-top: 0.34rem;
+  color: #335744;
+  font-size: 0.86rem;
+}
+
+.docsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.docsGrid a {
+  text-decoration: none;
+  color: #132219;
+  border-radius: 1rem;
+  border: 1px solid #d2dfd5;
+  background: rgba(246, 251, 247, 0.9);
+  padding: 0.95rem;
+  transition: transform 180ms ease, box-shadow 220ms ease;
+}
+
+.docsGrid a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(30, 82, 49, 0.12);
+}
+
+.docsGrid img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.docsGrid h2 {
+  margin: 0.62rem 0 0;
+  font-size: 1.08rem;
+}
+
+.docsGrid p {
+  margin: 0.45rem 0 0;
+  color: #355844;
+  line-height: 1.4;
+}
+
+.docsFlow {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.docsFlow article {
+  border-radius: 1rem;
+  border: 1px solid #d0ddd4;
+  background: rgba(241, 247, 242, 0.88);
+  padding: 0.9rem;
+}
+
+.docsFlow span {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #111318;
+  color: #fff;
+  font-size: 0.83rem;
+}
+
+.docsFlow h3 {
+  margin: 0.62rem 0 0;
+  font-size: 1.02rem;
+}
+
+.docsFlow p {
+  margin: 0.45rem 0 0;
+  color: #345744;
+  line-height: 1.4;
+}
+
+@media (max-width: 980px) {
+  .docsHero,
+  .docsGrid,
+  .docsFlow {
+    grid-template-columns: 1fr;
+  }
+
+  .docsHero {
+    min-height: auto;
+  }
+}

@@ -1,0 +1,192 @@
+.contactsPage {
+  display: grid;
+  gap: 1rem;
+  min-height: 100%;
+  padding: 0.5rem 0 0.8rem;
+}
+
+.contactsHero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 0.9rem;
+}
+
+.contactsCopy {
+  border: 1px solid #d0ddd4;
+  border-radius: 1.15rem;
+  background: rgba(244, 250, 245, 0.9);
+  padding: clamp(1rem, 2.4vw, 1.5rem);
+}
+
+.kicker {
+  margin: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #177640;
+  font-weight: 700;
+}
+
+.contactsCopy h1 {
+  margin: 0.7rem 0 0;
+  font-size: clamp(1.9rem, 4vw, 3.35rem);
+  line-height: 0.94;
+  letter-spacing: -0.03em;
+}
+
+.contactsCopy > p {
+  margin: 0.8rem 0 0;
+  color: #345644;
+  line-height: 1.45;
+}
+
+.contactsLinks {
+  border: 1px solid #d0ddd4;
+  border-radius: 1.15rem;
+  background: rgba(239, 247, 240, 0.9);
+  padding: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.55rem;
+}
+
+.contactsLinks a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  text-decoration: none;
+  border-radius: 999px;
+  border: 1px solid #d3dfd6;
+  padding: 0.64rem 0.9rem;
+  color: #18291e;
+  background: rgba(248, 252, 248, 0.95);
+  font-weight: 600;
+  text-align: center;
+  transition: transform 180ms ease, box-shadow 220ms ease;
+}
+
+.contactsLinks a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(30, 82, 49, 0.12);
+}
+
+.contactsLinks a:last-child {
+  background: #0c9c0c;
+  border-color: #0c9c0c;
+  color: #fff;
+}
+
+.contactsLayout {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 0.75rem;
+  align-items: stretch;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.infoGrid article {
+  border-radius: 1rem;
+  border: 1px solid #d2dfd5;
+  background: rgba(246, 251, 247, 0.9);
+  padding: 0.9rem;
+}
+
+.infoGrid h2 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.infoGrid p {
+  margin: 0.45rem 0 0;
+  color: #355844;
+  line-height: 1.4;
+}
+
+.mapCard {
+  border-radius: 1rem;
+  border: 1px solid #d2dfd5;
+  background: rgba(240, 247, 241, 0.88);
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+.mapImage {
+  min-height: 180px;
+  background: radial-gradient(circle at 72% 24%, rgba(25, 150, 72, 0.22), transparent 58%),
+    url('/xcar/im_download_app_bg.png') center / cover no-repeat;
+  opacity: 0.9;
+}
+
+.mapNote {
+  padding: 0.86rem;
+  border-top: 1px solid #d2dfd5;
+  background: rgba(249, 252, 249, 0.95);
+}
+
+.mapNote h3 {
+  margin: 0;
+  font-size: 1.03rem;
+}
+
+.mapNote p {
+  margin: 0.5rem 0 0;
+  color: #365b48;
+  line-height: 1.4;
+}
+
+.channels {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.channels article {
+  border-radius: 1rem;
+  border: 1px solid #d2dfd5;
+  background: rgba(241, 247, 242, 0.88);
+  padding: 0.9rem;
+}
+
+.channels h3 {
+  margin: 0;
+  font-size: 1.03rem;
+}
+
+.channels p {
+  margin: 0.5rem 0 0;
+  color: #355844;
+  line-height: 1.42;
+}
+
+.channels a {
+  margin-top: 0.65rem;
+  display: inline-flex;
+  text-decoration: none;
+  border-radius: 999px;
+  border: 1px solid #d3dfd6;
+  padding: 0.45rem 0.72rem;
+  color: #18291e;
+  background: rgba(250, 253, 250, 0.95);
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+@media (max-width: 1100px) {
+  .contactsHero,
+  .contactsLayout,
+  .channels {
+    grid-template-columns: 1fr;
+  }
+
+  .infoGrid {
+    grid-template-columns: 1fr;
+  }
+}
