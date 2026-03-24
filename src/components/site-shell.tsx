@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import ParticleBackground from '@/components/particle-background';
 import styles from './site-shell.module.css';
 
@@ -20,6 +20,23 @@ const navItems = [
 export default function SiteShell({ children }: SiteShellProps) {
   const pathname = usePathname();
   const pageRootRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+
+    return () => {
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'auto';
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [pathname]);
 
   return (
     <main ref={pageRootRef} id="top" className={styles.page}>

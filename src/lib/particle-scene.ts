@@ -469,6 +469,7 @@ class ParticleSimulation {
         varying vec2 vLocalPos;
         varying vec2 vScreenPos;
         varying float vScale;
+        varying float vDepth;
 
         void main() {
           vec4 pos = texture2D(uPosition, uv);
@@ -476,13 +477,16 @@ class ParticleSimulation {
 
           vVelocity = pos.w;
           vScale = pos.z;
+          float depth = ((seeds.z - 0.5) * 0.22) + (sin((uTime * 0.7) + (seeds.w * 6.2831853)) * 0.015);
           vLocalPos = pos.xy;
+          vDepth = depth;
 
-          vec4 viewSpace  = modelViewMatrix * vec4(vec3(pos.xy, 0.0), 1.0);
+          vec4 viewSpace  = modelViewMatrix * vec4(vec3(pos.xy, depth * 0.4), 1.0);
           gl_Position = projectionMatrix * viewSpace;
           vScreenPos = gl_Position.xy;
 
-          gl_PointSize = ((vScale * 4.8) * (uPixelRatio * 0.5) * uParticleScale);
+          float depthScale = clamp(1.0 + (depth * 0.22), 0.93, 1.1);
+          gl_PointSize = ((vScale * 5.05) * (uPixelRatio * 0.5) * uParticleScale) * depthScale;
         }
       `,
       fragmentShader: `
@@ -493,6 +497,7 @@ class ParticleSimulation {
         varying vec2 vLocalPos;
         varying float vScale;
         varying float vVelocity;
+        varying float vDepth;
 
         uniform vec3 uColor1;
         uniform vec3 uColor2;
@@ -547,7 +552,8 @@ class ParticleSimulation {
           float rounded = sdRoundBox(uv, vec2(0.5, 0.2), vec4(.25));
           rounded = smoothstep(.1, 0.0, rounded);
 
-          float a = uAlpha * rounded * smoothstep(0.1, 0.2, vScale);
+          float depthOpacity = smoothstep(-0.18, 0.2, vDepth);
+          float a = uAlpha * rounded * smoothstep(0.1, 0.2, vScale) * mix(0.94, 1.06, depthOpacity);
 
           if (a < 0.01) {
             discard;
